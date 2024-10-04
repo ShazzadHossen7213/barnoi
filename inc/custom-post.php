@@ -24,7 +24,7 @@ function custom_teammember()
 			'show_ui'                => true,
 			'capability_type'        => 'post',
 			'rewrite'                => array('slug' => 'teammember'),
-			'supports'               => array('title', 'thumbnail', 'editor'),
+			'supports'               => array('title', 'thumbnail', 'excerpt'),
 		)
 	);
 }
@@ -47,27 +47,27 @@ add_action('add_meta_boxes', 'add_team_member_metaboxes');
 // Callback function for meta box content
 function team_member_details_callback($post)
 {
-	// Retrieve current meta values if available
-	$designation = get_post_meta($post->ID, '_team_member_designation', true);
-	$social_link = get_post_meta($post->ID, '_team_member_social_link', true);
-	$email = get_post_meta($post->ID, '_team_member_email', true);
-	$contact = get_post_meta($post->ID, '_team_member_contact', true);
+	// meta values
+	$facebook = get_post_meta($post->ID, '_facebook_link', true);
+	$instagram = get_post_meta($post->ID, '_instagram_link', true);
+	$twitter = get_post_meta($post->ID, '_twitter_link', true);
+	$pinterest = get_post_meta($post->ID, '_pinterest_link', true);
 ?>
 	<div class="team_metafield">
-		<label for="team_member_designation">Designation:</label>
-		<input type="text" id="team_member_designation" name="team_member_designation" value="<?php echo esc_attr($designation); ?>" />
+		<label for="facebook_link">Facebook:</label>
+		<input type="text" id="facebook_link" name="facebook_link" />
+	</div>
+	<div class=" team_metafield">
+		<label for="instagram_link">Instagram:</label>
+		<input type="text" id="instagram_link" name="instagram_link" />
 	</div>
 	<div class="team_metafield">
-		<label for="team_member_social_link">Social Link:</label>
-		<input type="url" id="team_member_social_link" name="team_member_social_link" value="<?php echo esc_attr($social_link); ?>" />
+		<label for="twitter_link">Twitter:</label>
+		<input type="text" id="twitter_link" name="twitter_link" />
 	</div>
 	<div class="team_metafield">
-		<label for="team_member_email">Email:</label>
-		<input type="email" id="team_member_email" name="team_member_email" value="<?php echo esc_attr($email); ?>" />
-	</div>
-	<div class="team_metafield">
-		<label for="team_member_contact">Contact:</label>
-		<input type="text" id="team_member_contact" name="team_member_contact" value="<?php echo esc_attr($contact); ?>" />
+		<label for="pinterest_link">Pinterest:</label>
+		<input type="text" id="pinterest_link" name="pinterest_link" />
 	</div>
 <?php
 }
