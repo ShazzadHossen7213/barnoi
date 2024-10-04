@@ -186,3 +186,29 @@ if (defined('JETPACK__VERSION')) {
  */
 
 require get_template_directory() . '/inc/custom-post.php';
+
+// Enqueue custom styles and scripts for the Barnoi theme
+function barnoi_css_js_file_calling()
+{
+	// Enqueue custom CSS
+	wp_enqueue_style('barnoi-style', get_stylesheet_uri());
+	wp_register_style('bootstrap', get_template_directory_uri() . 'css/bootstrap.min.css', array(), '4.0.0', 'all');
+
+	wp_register_style('custom', get_template_directory_uri() . 'css/custom.css', array(), '1.0.0', 'all');
+	wp_enqueue_style('bootstrap');
+	wp_enqueue_style('custom');
+
+	//jQuery
+	wp_enqueue_script('jquery');
+	wp_register_script('bootstrap', get_template_directory_uri() . 'js/bootstrap.min.js', array(), '1.0.0', '4.0.0');
+}
+add_action('wp_enqueue_scripts', 'barnoi_css_js_file_calling');
+
+function enqueue_teammember_admin_styles()
+{
+	// Check if we are in the admin and editing the teammember post type
+	if (get_current_screen()->post_type === 'teammember') {
+		wp_enqueue_style('teammember-admin-styles', get_template_directory_uri() . '/css/teammember.css');
+	}
+}
+add_action('admin_enqueue_scripts', 'enqueue_teammember_admin_styles');

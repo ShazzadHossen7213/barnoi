@@ -93,16 +93,3 @@ function save_team_member_meta($post_id)
 	}
 }
 add_action('save_post', 'save_team_member_meta');
-?>
-<style>
-	.team_metafield {
-		padding: 6px;
-	}
-
-	.meta-box-sortables input {
-		vertical-align: middle;
-		width: 100%;
-		padding: 10px;
-		margin: 5px 0 0;
-	}
-</style>
