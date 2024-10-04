@@ -6,15 +6,6 @@
 
 get_header(); ?>
 
-
-
-
-<div class="team-member">
-  <h2><?php the_title(); ?></h2>
-  <div><?php the_content(); ?></div>
-</div>
-
-
 <!-- Team Area  Start Here  -->
 <section class="team__area">
   <div class="container-fluid">
@@ -26,7 +17,6 @@ get_header(); ?>
         'post_status'    => 'publish',
         'posts_per_page' => -1,
         'order'          => 'ASC',
-        'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
       );
 
       $team_members = new WP_Query($args);

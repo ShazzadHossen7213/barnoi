@@ -76,20 +76,17 @@ function team_member_details_callback($post)
 function save_team_member_meta($post_id)
 {
 	// Check if the fields are set and save them
-	if (isset($_POST['team_member_designation'])) {
-		update_post_meta($post_id, '_team_member_designation', sanitize_text_field($_POST['team_member_designation']));
+	if (isset($_POST['facebook_link'])) {
+		update_post_meta($post_id, '_facebook_link', sanitize_text_field($_POST['facebook_link']));
 	}
-
-	if (isset($_POST['team_member_social_link'])) {
-		update_post_meta($post_id, '_team_member_social_link', esc_url_raw($_POST['team_member_social_link']));
+	if (isset($_POST['instagram_link'])) {
+		update_post_meta($post_id, '_instagram_link', sanitize_text_field($_POST['instagram_link']));
 	}
-
-	if (isset($_POST['team_member_email'])) {
-		update_post_meta($post_id, '_team_member_email', sanitize_email($_POST['team_member_email']));
+	if (isset($_POST['twitter_link'])) {
+		update_post_meta($post_id, '_twitter_link', sanitize_text_field($_POST['twitter_link']));
 	}
-
-	if (isset($_POST['team_member_contact'])) {
-		update_post_meta($post_id, '_team_member_contact', sanitize_text_field($_POST['team_member_contact']));
+	if (isset($_POST['pinterest_link'])) {
+		update_post_meta($post_id, '_pinterest_link', sanitize_text_field($_POST['pinterest_link']));
 	}
 }
 add_action('save_post', 'save_team_member_meta');
