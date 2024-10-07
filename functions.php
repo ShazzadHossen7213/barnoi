@@ -195,7 +195,11 @@ function barnoi_css_js_file_calling()
 	//wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.0.0', 'all');
 
 	wp_enqueue_style('custom', get_template_directory_uri() . '/css/custom.css', array(), '1.0.0', 'all');
-	wp_enqueue_style('fonts', get_template_directory_uri() . '/fonts/font-awesome-pro.css', array(), '1.0.0', 'all');
+	wp_enqueue_style('fonts', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
+
+
+
+', array(), '1.0.0', 'all');
 
 
 	//jQuery

@@ -22,19 +22,50 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
-.team__area .team {
+.team__area .team .team__img {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  background-color: #2a68df3b;
-}
-
-.team__area .team .team__img {
-  text-align: center;
+  border-radius: 12px 12px 0;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 }
 
 .team__area .team .team__img .img-fluid {
   width: 100%;
+}
+
+.team__area .team .team__img .team__content--overlay {
+  position: absolute;
+  z-index: 9;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  text-align: left;
+  padding: 10px 0 10px 15px;
+  width: 85%;
+  border-left: 4px solid #f04a00;
+  border-radius: 4px 12px 0 4px !important;
+}
+
+.team__area .team .team__img .team__content--overlay p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #70747d;
+  margin-bottom: 0 !important;
+}
+
+.team__area .team .team__img .team__content--overlay h4 {
+  font-size: 28px;
+  line-height: 38px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .team__area .team .team__img .team__content--overlay h4 {
+    font-size: 22px;
+    line-height: 32px;
+  }
 }
 
 .team__area .team .team__img:hover img {
@@ -42,7 +73,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 .team__area .team .team__img:hover {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 }
 
 .team__area .team .team__img:hover .overlay {
@@ -51,6 +83,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .team__area .team .team__img img {
   transition: transform 0.4s ease, translate 0.4s ease;
+  width: 100%;
 }
 
 .team__area .team .team__img .overlay {
@@ -64,46 +97,42 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   justify-content: center;
   align-items: center;
   opacity: 0;
+  z-index: 1;
   transition: opacity 0.3s ease-in-out;
 }
 
 .team__area .team .team__img .overlay .icons {
   position: absolute;
-  bottom: 40px;
+  top: 20px;
+  right: 20px;
 }
-
+.team__area .team .team__img .overlay .icons a{
+  text-decoration: none;
+}
+.team__area .team .team__img .overlay .icons a:hover{
+  text-decoration: none;
+}
 .team__area .team .team__img .overlay .icons a i {
-  font-size: 24px;
-  height: 50px;
-  width: 50px;
-  background: var(--st-common-white);
-  vertical-align: middle;
-  line-height: 51px;
-  font-weight: 400;
-  margin: 0 4px;
-  border-radius: 50%;
+    font-size: 24px;
+    height: 40px;
+    width: 40px;
+    background: #fff;
+    display: flex;
+    line-height: 41px;
+    font-weight: 400;
+    margin: 0 4px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #434242;
+    transition: background-color ease .3s;
+    transition: color ease .3s;
 }
-
+.team__area .team .team__img .overlay .icons li{
+  list-style: none;
+  margin: 15px 0;
+}
 .team__area .team .team__img .overlay .icons a i:hover {
-  background-color: var(--st-theme-1);
-  color: var(--st-common-white);
-}
-
-.team__area .team .team__content p {
-  font-size: 14px;
-  line-height: 20px;
-  color: #70747d;
-}
-
-.team__area .team .team__content h4 {
-  font-size: 32px;
-  line-height: 40px;
-}
-
-/* Media Queries */
-@media (max-width: 1200px) {
-  /* Adjust based on your breakpoints */
-  .team__area .team .team__content h4 {
-    font-size: 25px;
-  }
+  background-color: #ff8226;
+  color: #fff;
 }

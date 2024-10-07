@@ -963,5 +963,7 @@ textarea {
   margin-right: auto;
   margin-bottom: 1.5em;
 }
-
+li{
+  list-style: none;
+}
 
