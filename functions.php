@@ -192,7 +192,6 @@ function barnoi_css_js_file_calling()
 {
 	// Enqueue custom CSS
 	wp_enqueue_style('barnoi-style', get_stylesheet_uri());
-	//wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.0.0', 'all');
 
 	wp_enqueue_style('custom', get_template_directory_uri() . '/css/custom.css', array(), '1.0.0', 'all');
 	wp_enqueue_style('fonts', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
@@ -204,8 +203,6 @@ function barnoi_css_js_file_calling()
 
 	//jQuery
 	wp_enqueue_script('jquery');
-	wp_register_script('bootstrap', get_template_directory_uri() . 'js/bootstrap.min.js', array(), '1.0.0', '4.0.0');
-
 
 	wp_register_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(), '4.5.2');
 
@@ -228,3 +225,14 @@ function enqueue_teammember_admin_styles()
 	}
 }
 add_action('admin_enqueue_scripts', 'enqueue_teammember_admin_styles');
+
+
+function theme_enqueue_scripts() {
+    // Enqueue jQuery (optional, WordPress includes it by default)
+    wp_enqueue_script('jquery');
+
+    // Enqueue custom JS file (located in your theme's "js" folder)
+    wp_enqueue_script('navbar-js', get_template_directory_uri() . '/js/navbar.js', array('jquery'), null, true);
+}
+
+add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
